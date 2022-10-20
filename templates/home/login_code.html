@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    <script src="{% static 'home/login.js' %}"></script>
+{% endblock %}
+{% block content %}
+    <form action="/login/code/" method="post" id="form" novalidate>
+        {% csrf_token %}
+        <!--send code-->
+        <div class="fieldWrapper mb-3">
+            <div class="form-label">{{ form.code.label_tag }}</div>
+            {{ form.code }}
+            {{ form.code.errors }}
+        </div>
+        <button class="btn btn-primary" type="submit" id="submit_button"
+                onclick="submit_and_loading_button('submit_button', 'form', 'Sending Code...')">
+            Send Code
+        </button>
+    </form>
+{% endblock %}

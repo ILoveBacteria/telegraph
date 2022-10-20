@@ -9,7 +9,6 @@ def index(request):
 def login(request):
     if request.method == 'POST':
         form = forms.LoginForm(request.POST, error_class=forms.DivErrorList)
-        form.fields['phone'].widget.attrs.update({'class': 'form-control is-valid'})
         if form.is_valid():
             # TODO: Redirect it to the chat app
             return HttpResponseRedirect('/')
@@ -17,3 +16,15 @@ def login(request):
     else:
         form = forms.LoginForm()
     return render(request, 'home/login.html', {'form': form, 'title': 'Login'})
+
+
+def login_code(request):
+    if request.method == 'POST':
+        form = forms.LoginCodeForm(request.POST, error_class=forms.DivErrorList)
+        if form.is_valid():
+            # TODO: Redirect it to the chat app
+            return HttpResponseRedirect('/')
+        form.update_validation()
+    else:
+        form = forms.LoginCodeForm()
+    return render(request, 'home/login_code.html', {'form': form, 'title': 'Login Code'})

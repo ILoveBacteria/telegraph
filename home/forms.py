@@ -13,7 +13,16 @@ class DivErrorList(ErrorList):
         return mark_safe('\n'.join([f'<div class="invalid-feedback">{e}</div>' for e in self]))
 
 
-class LoginForm(forms.Form):
+class MyForm(forms.Form):
+    def update_validation(self):
+        for name, field in self.fields.items():
+            if name in self.errors:
+                field.widget.attrs.update({'class': 'form-control is-invalid'})
+            else:
+                field.widget.attrs.update({'class': 'form-control is-valid'})
+
+
+class LoginForm(MyForm):
     phone = forms.RegexField(
         label='Phone number',
         help_text='912345678',
@@ -22,9 +31,9 @@ class LoginForm(forms.Form):
         regex=r'^9\d{9}$'
     )
 
-    def update_validation(self):
-        for name, field in self.fields.items():
-            if name in self.errors:
-                field.widget.attrs.update({'class': 'form-control is-invalid'})
-            else:
-                field.widget.attrs.update({'class': 'form-control is-valid'})
+
+class LoginCodeForm(MyForm):
+    code = forms.IntegerField(
+        widget=forms.NumberInput(attrs={'class': 'form-control'}),
+        label='Code'
+    )
