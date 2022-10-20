@@ -1,0 +1,6 @@
+# Pycharm
+/.idea
+
+/roadmap.txt
+/db.sqlite3
+/.env
