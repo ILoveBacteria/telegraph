@@ -6,7 +6,7 @@
     <script src="{% static 'home/login.js' %}"></script>
 {% endblock %}
 {% block content %}
-    <form class="needs-validation" action="/login/" method="post" id="login_form" novalidate>
+    <form action="/login/" method="post" id="form" novalidate>
         {% csrf_token %}
         <!--phone-->
         <div class="fieldWrapper mb-3">
@@ -18,7 +18,7 @@
             </div>
         </div>
         <button class="btn btn-primary" type="submit" id="submit_button"
-                onclick="submit_and_loading_button('submit_button', 'login_form')">
+                onclick="submit_and_loading_button('submit_button', 'form')">
             Submit
         </button>
     </form>
