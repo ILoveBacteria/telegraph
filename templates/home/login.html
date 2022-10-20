@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}{{ title }}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    <script src="{% static 'home/login.js' %}"></script>
+{% endblock %}
 {% block content %}
-    <form class="needs-validation" action="/login/" method="post" novalidate>
+    <form class="needs-validation" action="/login/" method="post" id="login_form" novalidate>
         {% csrf_token %}
         <!--phone-->
         <div class="fieldWrapper mb-3">
@@ -12,6 +17,9 @@
                 {{ form.phone.errors }}
             </div>
         </div>
-        <input class="btn btn-primary" type="submit" value="Submit">
+        <button class="btn btn-primary" type="submit" id="submit_button"
+                onclick="submit_and_loading_button('submit_button', 'login_form')">
+            Submit
+        </button>
     </form>
 {% endblock %}
