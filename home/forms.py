@@ -37,3 +37,10 @@ class LoginCodeForm(MyForm):
         widget=forms.NumberInput(attrs={'class': 'form-control'}),
         label='Code'
     )
+
+
+class LoginPasswordForm(MyForm):
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        label='Password'
+    )

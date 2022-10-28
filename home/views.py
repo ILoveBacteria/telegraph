@@ -28,3 +28,15 @@ def login_code(request):
     else:
         form = forms.LoginCodeForm()
     return render(request, 'home/login_code.html', {'form': form, 'title': 'Login Code'})
+
+
+def login_password(request):
+    if request.method == 'POST':
+        form = forms.LoginPasswordForm(request.POST, error_class=forms.DivErrorList)
+        if form.is_valid():
+            # TODO: Redirect it to the chat app
+            return HttpResponseRedirect('/')
+        form.update_validation()
+    else:
+        form = forms.LoginPasswordForm()
+    return render(request, 'home/login_password.html', {'form': form, 'title': 'Login Password'})
