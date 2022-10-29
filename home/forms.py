@@ -1,6 +1,13 @@
 from django import forms
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 from django.forms.utils import ErrorList
 from django.utils.safestring import mark_safe
+
+
+def validate_select_country(value):
+    if value == '---':
+        raise ValidationError('The country must be selected')
 
 
 class DivErrorList(ErrorList):
@@ -28,7 +35,18 @@ class LoginForm(MyForm):
         help_text='912345678',
         widget=forms.NumberInput(attrs={'class': 'form-control', 'type': 'tel'}),
         strip=True,
-        regex=r'^9\d{9}$'
+        regex=r'^9\d{9}$',
+    )
+
+    country = forms.ChoiceField(
+        choices=(
+            ('---', 'Select your country'),
+            ('+98', 'Iran'),
+            ('+1', 'USA'),
+        ),
+        label='Country',
+        widget=forms.Select(attrs={'class': 'form-select', 'onchange': 'updateCountryCode()'}),
+        validators=[validate_select_country],
     )
 
 
