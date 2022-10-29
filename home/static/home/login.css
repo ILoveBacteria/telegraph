@@ -10,5 +10,11 @@ body {
 }
 
 .form-login {
-  max-width: 360px;
+  max-width: 330px;
+}
+
+.logo {
+  max-width: 140px;
+  max-height: 140px;
+  fill: #26a4e3;
 }
