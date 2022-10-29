@@ -4,22 +4,30 @@
 {% block head %}
     {{ block.super }}
     <script src="{% static 'home/login.js' %}"></script>
+    <link href="{% static 'home/uicons-brands.css' %}" rel="stylesheet">
+    <link href="{% static 'home/login.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
-    <form action="/login/" method="post" id="form" novalidate>
-        {% csrf_token %}
-        <!--phone-->
-        <div class="fieldWrapper mb-3">
-            <div class="form-label">{{ form.phone.label_tag }}</div>
-            <div class="input-group">
-                <span class="input-group-text" id="basic-addon1">+98</span>
-                {{ form.phone }}
-                {{ form.phone.errors }}
+    <div class="border rounded-2 m-auto p-3 w-100 form-login">
+        <img src="{% static 'home/icons/fi-brands-telegram.svg' %}" alt="telegram"
+                     style="max-width: 160px" class="d-block mx-auto mb-3">
+        <h2 class="mb-2 text-center">Login</h2>
+        <div class="mb-3 text-center text-muted">Enter your phone number</div>
+        <form action="/login/" method="post" id="form" novalidate>
+            {% csrf_token %}
+            <!--phone-->
+            <div class="fieldWrapper mb-4">
+                <div class="form-label">{{ form.phone.label_tag }}</div>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">+98</span>
+                    {{ form.phone }}
+                    {{ form.phone.errors }}
+                </div>
             </div>
-        </div>
-        <button class="btn btn-primary" type="submit" id="submit_button"
-                onclick="submit_and_loading_button('submit_button', 'form')">
-            Submit
-        </button>
-    </form>
+            <button class="btn btn-primary w-100 btn-lg" type="submit" id="submit_button"
+                    onclick="submit_and_loading_button('submit_button', 'form')">
+                Submit
+            </button>
+        </form>
+    </div>
 {% endblock %}

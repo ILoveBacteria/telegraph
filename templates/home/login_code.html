@@ -6,17 +6,20 @@
     <script src="{% static 'home/login.js' %}"></script>
 {% endblock %}
 {% block content %}
-    <form action="/login/code/" method="post" id="form" novalidate>
-        {% csrf_token %}
-        <!--send code-->
-        <div class="fieldWrapper mb-3">
-            <div class="form-label">{{ form.code.label_tag }}</div>
-            {{ form.code }}
-            {{ form.code.errors }}
-        </div>
-        <button class="btn btn-primary" type="submit" id="submit_button"
-                onclick="submit_and_loading_button('submit_button', 'form', 'Sending Code...')">
-            Send Code
-        </button>
-    </form>
+    <div class="position-absolute top-50 start-50 translate-middle border rounded-2 p-3 w-100" style="max-width: 360px">
+        <h2 class="mb-2 text-center">Verification Code</h2>
+        <form action="/login/code/" method="post" id="form" novalidate>
+            {% csrf_token %}
+            <!--send code-->
+            <div class="fieldWrapper mb-3">
+                <div class="form-label">{{ form.code.label_tag }}</div>
+                {{ form.code }}
+                {{ form.code.errors }}
+            </div>
+            <button class="btn btn-primary w-100" type="submit" id="submit_button"
+                    onclick="submit_and_loading_button('submit_button', 'form', 'Sending Code...')">
+                Send Code
+            </button>
+        </form>
+    </div>
 {% endblock %}
