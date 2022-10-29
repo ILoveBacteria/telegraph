@@ -12,9 +12,12 @@ def login(request):
         if form.is_valid():
             # TODO: Redirect it to the chat app
             return HttpResponseRedirect('/')
+        if 'country' in form.errors:
+            form.fields['phone'].disabled = True
         form.update_validation()
     else:
         form = forms.LoginForm()
+        form.fields['phone'].disabled = True
     return render(request, 'home/login.html', {'form': form, 'title': 'Login'})
 
 

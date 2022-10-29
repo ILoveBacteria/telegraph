@@ -8,5 +8,12 @@ function submitAndLoadingButton(buttonId, formId, text = "Loading...") {
 
 function updateCountryCode() {
     const codeElement = document.getElementById("country_code");
-    codeElement.innerHTML = document.getElementById("id_country").value;
+    const value = document.getElementById("id_country").value;
+    const phoneField = document.getElementById("id_phone");
+    codeElement.innerHTML = value;
+    if (value === "---") {
+        phoneField.setAttribute("disabled", "");
+    } else {
+        phoneField.removeAttribute("disabled");
+    }
 }
