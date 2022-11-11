@@ -4,10 +4,16 @@
 {% block head %}
     {{ block.super }}
     <script src="{% static 'home/login.js' %}"></script>
+    <link href="{% static 'home/login.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
-    <div class="position-absolute top-50 start-50 translate-middle border rounded-2 p-3 w-100" style="max-width: 360px">
+    <div class="m-auto w-100 form-login">
+        <!--logo-->
+        <img src="{% static 'home/icons/password.png' %}" class="d-block mx-auto mb-3 logo">
+        <!--title-->
         <h2 class="mb-2 text-center">Verification Code</h2>
+        <div class="mb-3 text-center text-muted w-75 mx-auto">Enter the code which you have received</div>
+        <!--form-->
         <form action="/login/code/" method="post" id="form" novalidate>
             {% csrf_token %}
             <!--send code-->
@@ -16,9 +22,9 @@
                 {{ form.code }}
                 {{ form.code.errors }}
             </div>
-            <button class="btn btn-primary w-100" type="submit" id="submit_button"
-                    onclick="submit_and_loading_button('submit_button', 'form', 'Sending Code...')">
-                Send Code
+            <button class="btn btn-primary btn-lg w-100" type="submit" id="submit_button"
+                    onclick="submitAndLoadingButton('submit_button', 'form', 'Checking Code...')">
+                Check Code
             </button>
         </form>
     </div>
