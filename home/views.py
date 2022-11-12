@@ -7,6 +7,7 @@ def index(request):
 
 
 def login(request):
+    country_code = '---'
     if request.method == 'POST':
         form = forms.LoginForm(request.POST, error_class=forms.DivErrorList)
         if form.is_valid():
@@ -14,11 +15,12 @@ def login(request):
             return HttpResponseRedirect('/')
         if 'country' in form.errors:
             form.fields['phone'].disabled = True
+        country_code = form.cleaned_data.get('country', '---')
         form.update_validation()
     else:
         form = forms.LoginForm()
         form.fields['phone'].disabled = True
-    return render(request, 'home/login.html', {'form': form, 'title': 'Login'})
+    return render(request, 'home/login.html', {'form': form, 'title': 'Login', 'county_code': country_code})
 
 
 def login_code(request):
