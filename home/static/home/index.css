@@ -1,37 +1,19 @@
-.logo {
-  max-width: 140px;
-  max-height: 140px;
-  fill: #26a4e3;
+.navbar-custom {
+  backdrop-filter: blur(20px);
 }
 
-h1 {
-    border-radius: 10px;
-    align-items: center;
-    display: flex;
-    padding-left: 40px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px 2px;
-    margin-left: 54px;
-    height: 110%;
-    width: 120%;
-    backdrop-filter: blur(20px);
-    font-family: 'Montserrat', sans-serif;
-    color: #484848;
-}
-
-.title-container {
-    margin-top: 20px;
-    height: 280px;
-    max-width: 450px;
-    display: flex;
-    align-items: center;
-}
-
-.Rectangle_1 {
-  border-radius: 10px;
+.hero-rectangle {
   background-image: -moz-linear-gradient( 90deg, rgba(176,225,250,0.99608) 0%, rgb(251,240,234) 100%);
   background-image: -webkit-linear-gradient( 90deg, rgba(176,225,250,0.99608) 0%, rgb(251,240,234) 100%);
   background-image: -ms-linear-gradient( 90deg, rgba(176,225,250,0.99608) 0%, rgb(251,240,234) 100%);
-  width: 90%;
-  height: 100%;
-  z-index: 3;
+  height: 400px;
+}
+
+.hero-title {
+  color: #484848;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
 }
