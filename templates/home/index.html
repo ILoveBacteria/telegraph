@@ -6,7 +6,8 @@
     <link href="{% static 'home/index.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
-    <nav class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sticky-top rounded-bottom navbar-custom" id="navId">
+    <!--navbar-->
+    <nav class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sticky-top rounded-bottom` navbar-custom" id="navId">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         <span class="fs-4">Simple header</span>
@@ -17,7 +18,7 @@
         <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
         <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
       </ul>
     </nav>
 
@@ -26,7 +27,7 @@
             <h1 class="hero-title">Simple, But Practical</h1>
             <a type="button" class="btn btn-primary" href="/login/">Large button</a>
         </div>
-
+        <!--what is telegraph-->
         <div class="row row-cols-1 row-cols-lg-2 align-items-center mb-5">
             <div class="col">
                 <h2>What is Telegraph?</h2>
@@ -41,32 +42,47 @@
                 <img src="{% static 'home/icons/password.png' %}" class="img-fluid" alt="Telegraph" width="260px">
             </div>
         </div>
-
-        <h2 class="mb-3" id="features">Features</h2>
-
-        <div class="row row-cols-1 row-cols-lg-3 md-3 g-5">
-            <div class="col">
-                <h3>Secure</h3>
-                <p>
-                Telegraph is using Telegram API, so it is as secure as Telegram. Telegraph is not storing any of your
-                data, you can be sure that your data is safe.
+        <!--features-->
+        <div class="mb-5" id="features">
+            <h2 class="mb-3">Features</h2>
+            <div class="row row-cols-1 row-cols-lg-3 md-3 g-5">
+                <div class="col">
+                    <h3>Secure</h3>
+                    <p>
+                        Telegraph is using Telegram API, so it is as secure as Telegram. Telegraph is not storing any of your
+                        data, you can be sure that your data is safe.
+                    </p>
+                </div>
+                <div class="col">
+                    <h3>Open Source</h3>
+                    <p>
+                        Telegraph is open source, so you can check the code and be sure that it is safe.
+                        It is available on <a href="https://github.com/ILoveBacteria/telegraph">GitHub</a>.
+                        You can also contribute to the project.
+                    </p>
+                </div>
+                <div class="col">
+                    <h3>Free</h3>
+                    <p>
+                        Because of our server costs, we are not able to provide free service for everyone. But we are trying to provide
+                        free service for some special users. For further information, please contact us.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--About-->
+        <div class="mb-5" id="about">
+            <h2 class="mb-3">About</h2>
+            <p>
+                The Telegraph idea came up by Moein Arabi for the first time and it is still designing and developing.
+                Telegraph is programmed with Python language as Django back-end server. The front side is designed with
+                Bootstrap.
             </p>
-            </div>
-            <div class="col">
-                <h3>Open Source</h3>
-                <p>
-                    Telegraph is open source, so you can check the code and be sure that it is safe.
-                    It is available on <a href="https://github.com/ILoveBacteria/telegraph">GitHub</a>.
-                    You can also contribute to the project.
-                </p>
-            </div>
-            <div class="col">
-                <h3>Free</h3>
-                <p>
-                    Because of our server costs, we are not able to provide free service for everyone. But we are trying to provide
-                    free service for some special users. For further information, please contact us.
-                </p>
-            </div>
+        </div>
+        <!--FAQs-->
+        <div>
+            Is Telegraph free? No, but you can contact admin and request to use Telegraph.
+            <br>
         </div>
     </main>
 {% endblock %}
