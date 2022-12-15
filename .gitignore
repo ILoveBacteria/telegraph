@@ -4,3 +4,10 @@
 /roadmap.txt
 /db.sqlite3
 /.env
+
+# Cache
+/telegraph/__pycache__
+/home/__pycache__
+/home/migrations
+/chat/__pycache__
+/chat/migrations
