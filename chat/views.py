@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def conversations(request):
+    return render(request, 'chat/conversations.html', {'title': 'Chats'})
